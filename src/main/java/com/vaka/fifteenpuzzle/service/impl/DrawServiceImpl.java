@@ -17,12 +17,12 @@ public class DrawServiceImpl implements DrawService {
   private static final String EMPTY_TILE_REPRESENTATION = "~";
   private static final String GAME_DESCRIPTION = String.format("The 15-puzzle " +
       "is a sliding puzzle that consists of a frame of numbered tiles in random order with one tile missing.\r\n" +
-      "The goal is to use your force make all numbers ordered and put empty tile(%s) to the end.", EMPTY_TILE_REPRESENTATION);
+      "The goal is to use your force to make all numbers ordered and place empty tile(%s) in the end of the frame.", EMPTY_TILE_REPRESENTATION);
   private static final String WELCOME_MESSAGE = "Welcome Jedi!";
   private static final String ASK_TO_MOVE_MESSAGE = "Please, write the number of a tile which you want to move.";
   private static final String INCORRECT_INPUT_MESSAGE = "Entered value '%s' isn't a number. %s";
   private static final String PUZZLE_IS_SOLVED_MESSAGE = "Well done, Master! The Puzzle is solved!";
-  private static final String TILE_IS_NOT_MOVABLE = "Tile %s can't be moved.";
+  private static final String TILE_IS_NOT_MOVABLE = "Tile %s can't be moved. It should be near empty(%s) tile.";
   private static final String TILE_NOT_EXISTS = "Tile %s not found on the board.";
 
   @Override
@@ -84,6 +84,6 @@ public class DrawServiceImpl implements DrawService {
 
   @Override
   public String getTileIsNotMovableMessage(Integer tileNumber) {
-    return String.format(TILE_IS_NOT_MOVABLE, tileNumber);
+    return String.format(TILE_IS_NOT_MOVABLE, tileNumber, EMPTY_TILE_REPRESENTATION);
   }
 }

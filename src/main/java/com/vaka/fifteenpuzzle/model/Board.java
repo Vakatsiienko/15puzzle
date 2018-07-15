@@ -41,7 +41,7 @@ public class Board {
     expectedTiles.add(EMPTY_TILE_NUMBER);
 
     Set<Integer> givenTilesWithoutOrder = new HashSet<>(tileList);
-    if (tileList.size() != expectedTiles.size() || !givenTilesWithoutOrder.equals(expectedTiles))
+    if (!givenTilesWithoutOrder.equals(expectedTiles))
       throw new IllegalArgumentException(String.format("The content of tile list isn't correct. Tile list: %s", tileList));
   }
 
